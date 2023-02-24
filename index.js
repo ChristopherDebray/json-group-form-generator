@@ -1,10 +1,10 @@
 class JsonGroupFormGenerator {
     constructor(parameters) {
-        this.formId = parameters.config.form ? parameters.config.form : 'js-object-infos-form';
-        this.inputsContainerId = parameters.config.inputsContainer ? parameters.config.inputsContainer : 'js-object-infos-form__inputsContainer';
-        this.objectsContainerId = parameters.config.objectsContainer ? parameters.config.objectsContainer : 'js-object-infos-form__objectsContainer';
-        this.submitButtonId = parameters.config.submitButton ? parameters.config.submitButton : 'js-object-infos-form__submit';
-        this.paginationContainerId = parameters.config.paginationContainer ? parameters.config.paginationContainer : 'js-object-infos-form__paginationContainer';
+        this.formId = parameters.config.form ?? 'js-object-infos-form';
+        this.inputsContainerId = parameters.config.inputsContainer ?? 'js-object-infos-form__inputsContainer';
+        this.objectsContainerId = parameters.config.objectsContainer ?? 'js-object-infos-form__objectsContainer';
+        this.submitButtonId = parameters.config.submitButton ?? 'js-object-infos-form__submit';
+        this.paginationContainerId = parameters.config.paginationContainer ?? 'js-object-infos-form__paginationContainer';
 
         this.objectList = parameters.objectList;
         this.fields = parameters.fields;
@@ -281,7 +281,7 @@ class JsonGroupFormGenerator {
         const submitHandler = function (e) {
             e.preventDefault();
             this._setSelectedObjectJson();
-            console.dir(this.objectList)
+            return this.objectList;
         }
         this.form.onsubmit = submitHandler.bind(this);
     }
